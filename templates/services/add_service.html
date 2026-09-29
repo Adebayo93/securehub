@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Add Security Service - SecureHub</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f1f5f9;
+        color: #0f172a;
+      }
+
+      nav {
+        background: #002b49;
+        padding: 18px 40px;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        color: #cbd5e1;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 0 20px;
+      }
+
+      .header {
+        margin-bottom: 25px;
+      }
+
+      .header h1 {
+        color: #002b49;
+        margin-bottom: 8px;
+      }
+
+      .header p {
+        color: #475569;
+      }
+
+      .card {
+        background: white;
+        padding: 35px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        font-size: 15px;
+      }
+
+      textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        border-color: #002b49;
+      }
+
+      .checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .checkbox input {
+        width: auto;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .btn {
+        padding: 12px 22px;
+        border-radius: 6px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      .btn-primary {
+        background: #002b49;
+        color: white;
+      }
+
+      .btn-secondary {
+        background: #e2e8f0;
+        color: #0f172a;
+      }
+
+      .errorlist {
+        color: #dc2626;
+        margin: 5px 0;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <a href="{% url 'home' %}">SecureHub</a>
+      <a href="{% url 'services:service_list' %}">Services</a>
+      <a href="{% url 'services:my_services' %}">My Services</a>
+      <a href="{% url 'services:add_service' %}">Add Service</a>
+      <a href="{% url 'dashboard' %}">Dashboard</a>
+    </nav>
+
+    <div class="container">
+      <div class="header">
+        <h1>Add Security Service</h1>
+        <p>Create a new security service for your company.</p>
+      </div>
+
+      <div class="card">
+        <form method="POST">
+          {% csrf_token %} {{ form.non_field_errors }}
+
+          <div class="form-group">
+            <label for="{{ form.category.id_for_label }}">
+              Service Category
+            </label>
+
+            {{ form.category }} {{ form.category.errors }}
+          </div>
+
+          <div class="form-group">
+            <label for="{{ form.name.id_for_label }}"> Service Name </label>
+
+            {{ form.name }} {{ form.name.errors }}
+          </div>
+
+          <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">
+              Description
+            </label>
+
+            {{ form.description }} {{ form.description.errors }}
+          </div>
+
+          <div class="form-group">
+            <label for="{{ form.minimum_price.id_for_label }}">
+              Minimum Price
+            </label>
+
+            {{ form.minimum_price }} {{ form.minimum_price.errors }}
+          </div>
+
+          <div class="form-group">
+            <label for="{{ form.maximum_price.id_for_label }}">
+              Maximum Price
+            </label>
+
+            {{ form.maximum_price }} {{ form.maximum_price.errors }}
+          </div>
+
+          <div class="form-group">
+            <label for="{{ form.personnel_count.id_for_label }}">
+              Number of Security Personnel
+            </label>
+
+            {{ form.personnel_count }} {{ form.personnel_count.errors }}
+          </div>
+
+          <div class="form-group checkbox">
+            {{ form.is_active }}
+
+            <label for="{{ form.is_active.id_for_label }}">
+              Service is active
+            </label>
+          </div>
+
+          <div class="buttons">
+            <button type="submit" class="btn btn-primary">Save Service</button>
+
+            <a
+              href="{% url 'services:my_services' %}"
+              class="btn btn-secondary"
+            >
+              Cancel
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

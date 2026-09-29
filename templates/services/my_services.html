@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My Services | SecureHub</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        margin: 0;
+        color: #222;
+      }
+
+      nav {
+        background: #0b1f3a;
+        padding: 18px 40px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin-right: 25px;
+        font-weight: bold;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 40px auto;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        color: #0b1f3a;
+        margin-bottom: 5px;
+      }
+
+      .btn {
+        background: #0b1f3a;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .card {
+        background: white;
+        padding: 25px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .card h2 {
+        color: #0b1f3a;
+        margin-top: 0;
+      }
+
+      .category {
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .price {
+        font-weight: bold;
+        margin-top: 15px;
+      }
+
+      .active {
+        color: green;
+        font-weight: bold;
+      }
+
+      .inactive {
+        color: red;
+        font-weight: bold;
+      }
+
+      .empty {
+        background: white;
+        padding: 50px;
+        text-align: center;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <a href="{% url 'home' %}"> SecureHub </a>
+
+      <a href="{% url 'services:service_list' %}"> Services </a>
+
+      <a href="{% url 'services:my_services' %}"> My Services </a>
+
+      <a href="{% url 'services:add_service' %}"> Add Service </a>
+
+      <a href="{% url 'dashboard' %}"> Dashboard </a>
+    </nav>
+
+    <div class="container">
+      <div class="header">
+        <div>
+          <h1>My Security Services</h1>
+
+          <p>Manage the security services offered by your company.</p>
+        </div>
+
+        <a href="{% url 'services:add_service' %}" class="btn">
+          + Add Service
+        </a>
+      </div>
+
+      {% if services %} {% for service in services %}
+
+      <div class="card">
+        <h2>{{ service.name }}</h2>
+
+        <div class="category">
+          <strong>Category:</strong>
+          {{ service.category.name }}
+        </div>
+
+        <p>{{ service.description }}</p>
+
+        <p>
+          <strong>Personnel:</strong>
+          {{ service.personnel_count }}
+        </p>
+
+        <div class="price">
+          <strong>Price:</strong>
+
+          {% if service.minimum_price and service.maximum_price %} ₦{{
+          service.minimum_price }} - ₦{{ service.maximum_price }} {% elif
+          service.minimum_price %} From ₦{{ service.minimum_price }} {% elif
+          service.maximum_price %} Up to ₦{{ service.maximum_price }} {% else %}
+          Price on request {% endif %}
+        </div>
+
+        <br />
+
+        {% if service.is_active %}
+
+        <span class="active"> ● Active </span>
+
+        {% else %}
+
+        <span class="inactive"> ● Inactive </span>
+
+        {% endif %}
+      </div>
+
+      {% endfor %} {% else %}
+
+      <div class="empty">
+        <h2>No Services Yet</h2>
+
+        <p>You have not added any security services yet.</p>
+
+        <a href="{% url 'services:add_service' %}" class="btn">
+          Add Your First Service
+        </a>
+      </div>
+
+      {% endif %}
+    </div>
+  </body>
+</html>

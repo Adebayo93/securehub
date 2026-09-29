@@ -1,0 +1,538 @@
+.hero {
+  min-height: calc(100vh - 72px);
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.65) 45%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    url("../images/security.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  max-width: 850px;
+  color: white;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.hero p {
+  max-width: 750px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.hero .badge {
+  font-size: 14px;
+  padding: 8px 14px;
+}
+.hero .btn {
+  padding: 13px 28px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.hero .btn-outline-dark {
+  color: white;
+  border-color: white;
+}
+
+.hero .btn-outline-dark:hover {
+  background: white;
+  color: #212529;
+}
+/* ========================================
+   WHY SECUREHUB SECTION
+======================================== */
+
+.why-securehub {
+  background: #f8f9fa;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 7px 15px;
+  background: #e7f1ff;
+  color: #0d6efd;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #212529;
+}
+
+.section-title span {
+  color: #0d6efd;
+}
+
+.section-description {
+  max-width: 700px;
+  margin: 15px auto 0;
+  color: #6c757d;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* Feature Cards */
+
+.feature-card {
+  height: 100%;
+  padding: 35px 30px;
+  background: white;
+  border-radius: 15px;
+  border: 1px solid #e9ecef;
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Feature Icon */
+
+.feature-icon {
+  width: 70px;
+  height: 70px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #e7f1ff;
+  border-radius: 50%;
+
+  font-size: 32px;
+}
+
+/* Card Heading */
+
+.feature-card h3 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #212529;
+}
+
+/* Card Text */
+
+.feature-card p {
+  color: #6c757d;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Card Link */
+
+.feature-card a {
+  color: #0d6efd;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.feature-card a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 32px;
+  }
+
+  .section-description {
+    font-size: 16px;
+  }
+
+  .feature-card {
+    padding: 30px 25px;
+  }
+}
+/* ========================================
+   SERVICES PREVIEW
+======================================== */
+
+.services-preview {
+  background: white;
+}
+
+.service-card {
+  height: 100%;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Service Images */
+
+.service-card-image {
+  height: 220px;
+
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+}
+
+/* Different backgrounds */
+
+.event-security {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    url("/static/images/events_security.png");
+}
+
+.private-security {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    url("/static/images/private_security.png");
+}
+
+/* ========================================
+   CORPORATE SECURITY SECTION
+   ======================================== */
+
+.corporate-section {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+}
+
+/* Text box */
+.corporate-content {
+  background: white;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #0d6efd;
+}
+
+.corporate-content h2 {
+  color: #212529;
+  line-height: 1.2;
+}
+
+.corporate-content p {
+  color: #6c757d;
+  line-height: 1.7;
+}
+
+/* Corporate image */
+.corporate-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.corporate-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Image label */
+
+.service-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-overlay span {
+  padding: 8px 18px;
+
+  color: white;
+  border: 2px solid white;
+  border-radius: 50px;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Card content */
+
+.service-card-body {
+  padding: 28px;
+}
+
+.service-card-body h3 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.service-card-body p {
+  color: #6c757d;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.service-card-body a {
+  color: #0d6efd;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.service-card-body a:hover {
+  text-decoration: underline;
+}
+.corporate-security {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("/static/images/corporates_security.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 600px;
+  padding: 100px 0;
+}
+/* Event Security */
+.event-section {
+  min-height: 600px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("../images/event.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Private Security */
+.private-section {
+  min-height: 600px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("../images/private.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Corporate Security */
+.corporate-section {
+  min-height: 600px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("../images/corporate.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* =================================
+   SECUREHUB AUTHENTICATION
+================================= */
+
+.auth-page {
+  background: #f8f9fa;
+}
+
+.auth-left {
+  position: relative;
+  min-height: 100vh;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("../images/security.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-brand {
+  position: relative;
+  z-index: 2;
+
+  max-width: 520px;
+  padding: 40px;
+
+  color: white;
+}
+
+.auth-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 35px;
+}
+
+.auth-brand h1 {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.auth-brand h1 span {
+  color: #0d6efd;
+}
+
+.auth-brand p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-top: 25px;
+}
+
+.auth-right {
+  background: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.auth-container h2 {
+  font-size: 32px;
+}
+
+.auth-container .nav-pills {
+  background: #f1f3f5;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.auth-container .nav-pills .nav-link {
+  color: #495057;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.auth-container .nav-pills .nav-link.active {
+  background: #0d6efd;
+  color: white;
+}
+
+.auth-container .form-control {
+  border-radius: 8px;
+  padding: 13px 15px;
+}
+
+.auth-container .form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.auth-link {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+.account-option {
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+
+  padding: 20px;
+  margin-bottom: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  transition: 0.2s ease;
+}
+
+.account-option:hover {
+  border-color: #0d6efd;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.account-option h5 {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.account-option p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.account-option .btn {
+  white-space: nowrap;
+}
+
+/* MOBILE */
+
+@media (max-width: 991px) {
+  .auth-left {
+    min-height: 350px;
+  }
+
+  .auth-brand {
+    text-align: center;
+    padding: 30px;
+  }
+
+  .auth-brand h1 {
+    font-size: 38px;
+  }
+
+  .auth-logo {
+    width: 140px;
+    margin-bottom: 20px;
+  }
+
+  .auth-right {
+    padding: 35px 20px;
+  }
+}

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Register Security Agency | SecureHub</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #f4f7fb;
+        font-family: Arial, sans-serif;
+      }
+
+      .register-wrapper {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 15px;
+      }
+
+      .register-card {
+        width: 100%;
+        max-width: 1050px;
+        background: white;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+      }
+
+      .brand-panel {
+        background: linear-gradient(145deg, #0f172a, #163b35);
+        color: white;
+        padding: 50px 40px;
+        min-height: 650px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .brand {
+        font-size: 30px;
+        font-weight: 800;
+        margin-bottom: 25px;
+      }
+
+      .brand span {
+        color: #22c55e;
+      }
+
+      .brand-panel h1 {
+        font-size: 38px;
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 20px;
+      }
+
+      .brand-panel p {
+        color: #cbd5e1;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 18px;
+        color: #e5e7eb;
+      }
+
+      .feature-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(34, 197, 94, 0.16);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4ade80;
+        font-weight: bold;
+      }
+
+      .form-panel {
+        padding: 45px;
+      }
+
+      .form-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #111827;
+      }
+
+      .form-subtitle {
+        color: #6b7280;
+        margin-bottom: 30px;
+      }
+
+      .form-label {
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 7px;
+      }
+
+      .form-control {
+        min-height: 48px;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        padding: 10px 14px;
+      }
+
+      .form-control:focus {
+        border-color: #16a34a;
+        box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+      }
+
+      .register-btn {
+        width: 100%;
+        min-height: 50px;
+        border: none;
+        border-radius: 10px;
+        background: #16a34a;
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      .register-btn:hover {
+        background: #15803d;
+      }
+
+      .login-text {
+        text-align: center;
+        margin-top: 22px;
+        color: #6b7280;
+      }
+
+      .login-text a {
+        color: #15803d;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      @media (max-width: 768px) {
+        .brand-panel {
+          min-height: auto;
+          padding: 35px 30px;
+        }
+
+        .brand-panel h1 {
+          font-size: 30px;
+        }
+
+        .form-panel {
+          padding: 30px 25px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="register-wrapper">
+      <div class="register-card">
+        <div class="row g-0">
+          <!-- Branding -->
+
+          <div class="col-lg-5">
+            <div class="brand-panel">
+              <div class="brand">Secure<span>Hub</span></div>
+
+              <h1>Grow your security business with SecureHub.</h1>
+
+              <p>
+                Create your agency account and connect your security services
+                with customers looking for trusted protection.
+              </p>
+
+              <div class="feature">
+                <div class="feature-icon">✓</div>
+                <span>Create your company profile</span>
+              </div>
+
+              <div class="feature">
+                <div class="feature-icon">✓</div>
+                <span>List your security services</span>
+              </div>
+
+              <div class="feature">
+                <div class="feature-icon">✓</div>
+                <span>Receive customer requests</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Registration form -->
+
+          <div class="col-lg-7">
+            <div class="form-panel">
+              <div class="form-title">Register your agency</div>
+
+              <p class="form-subtitle">
+                Create your SecureHub security agency account.
+              </p>
+
+              <form method="POST">
+                {% csrf_token %} {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                  {{ form.non_field_errors }}
+                </div>
+                {% endif %}
+
+                <div class="row">
+                  {% for field in form %}
+
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label" for="{{ field.id_for_label }}">
+                      {{ field.label }}
+                    </label>
+
+                    {{ field }} {% for error in field.errors %}
+                    <div class="text-danger small mt-1">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+
+                  {% endfor %}
+                </div>
+
+                <button type="submit" class="register-btn">
+                  Create Agency Account
+                </button>
+              </form>
+
+              <div class="login-text">
+                Already registered?
+
+                <a href="{% url 'login' %}"> Sign in </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
